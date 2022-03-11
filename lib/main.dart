@@ -229,11 +229,11 @@ class FightersInfo extends StatelessWidget {
           children: [
             Expanded(
                 child: ColoredBox(
-              color: FightClubColors.whiteText,
+              color: Colors.white,
             )),
             Expanded(
                 child: ColoredBox(
-              color: FightClubColors.darkPuple,
+              color: Color(0xFFC5D1EA),
             )),
           ],
         ),
@@ -384,17 +384,19 @@ class LivesWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: List.generate(overallivesCount, (index) {
         if (index < currentlivesCount) {
-          return [
-            Image.asset(FightClubIcons.heartFull, height: 18, width: 18),
-            if (index < overallivesCount - 1) SizedBox(height: 4)
-          ];
+          return
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Image.asset(FightClubIcons.heartFull, height: 18, width: 18),
+            );
         } else {
-          return [
-            Image.asset(FightClubIcons.heartEmpty, height: 18, width: 18),
-            if (index < overallivesCount - 1) SizedBox(height: 4)
-          ];
+          return
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Image.asset(FightClubIcons.heartEmpty, height: 18, width: 18),
+            );
         }
-      }).expand((element) => element).toList(),
+      }),
     );
   }
 }
