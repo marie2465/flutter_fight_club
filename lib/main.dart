@@ -128,9 +128,10 @@ class MyHomePageState extends State<MyHomePage> {
         if (enemysLives == 0 && yourLives == 0) {
           centerText = "Draw";
         } else if (yourLives == 0) {
-          centerText = "You lost!";
+          centerText = "You lost"
+          ;
         } else if (enemysLives == 0) {
-          centerText = "You won!";
+          centerText = "You won";
         } else {
           String first = enemyLoseLife
               ? "You hit enemy's ${attackingBodyPart!.name.toLowerCase()}."
