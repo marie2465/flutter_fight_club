@@ -35,30 +35,32 @@ class _MainPageContent extends StatelessWidget {
               ),
             ),
             const Expanded(child: SizedBox()),
-            Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.only(bottom: 12),
-                  child: Text(
-                    "Last fight result",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ),
-                FutureBuilder<String?>(
-                  future: SharedPreferences.getInstance().then(
-                        (sharedPreferences) =>
-                        sharedPreferences.getString("last_fight_result"),
-                  ),
-                  builder: (context, snapshot) {
-                    if (!snapshot.hasData || snapshot.data == null) {
-                      return const SizedBox();
-                    }
-                    final FightResult fightResult =FightResult.getByName(snapshot.data!);
-                    return FightResultWidget(fightResult: fightResult);
-                  },
-                ),
-              ],
+            FutureBuilder<String?>(
+              future: SharedPreferences.getInstance().then(
+                (sharedPreferences) =>
+                    sharedPreferences.getString("last_fight_result"),
+              ),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData || snapshot.data == null) {
+                  return const SizedBox();
+                }
+                final FightResult fightResult =
+                    FightResult.getByName(snapshot.data!);
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Last fight result",
+                      style: TextStyle(
+                        color: FightClubColors.darkGreyText,
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    FightResultWidget(fightResult: fightResult),
+                  ],
+                );
+              },
             ),
             const Expanded(child: SizedBox()),
             SecondaryActionButton(
