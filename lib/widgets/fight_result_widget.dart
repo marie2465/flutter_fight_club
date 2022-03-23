@@ -47,17 +47,13 @@ class FightResultWidget extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "You",
                     style: TextStyle(
-                        fontSize: 14, color: FightClubColors.darkGreyText),
+                        color: FightClubColors.darkGreyText, fontSize: 14),
                   ),
                   const SizedBox(height: 10),
-                  Image.asset(
-                    FightClubImages.youAvatar,
-                    height: 92,
-                    width: 92,
-                  ),
+                  Image.asset(FightClubImages.youAvatar, height: 92, width: 92),
                 ],
               ),
               Container(
@@ -70,7 +66,7 @@ class FightResultWidget extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    fightResult.result,
+                    fightResult.result.toLowerCase(),
                     style: const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),

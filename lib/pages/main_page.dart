@@ -49,7 +49,7 @@ class _MainPageContent extends StatelessWidget {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                       "Last fight result",
                       style: TextStyle(
                         color: FightClubColors.darkGreyText,
@@ -67,14 +67,14 @@ class _MainPageContent extends StatelessWidget {
                 text: "Statistics".toUpperCase(),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => StatisticsPage()));
+                      builder: (context) => const StatisticsPage()));
                 }),
             const SizedBox(height: 12),
             ActionButton(
                 text: "Start".toUpperCase(),
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => FightPage()),
+                    MaterialPageRoute(builder: (context) => const FightPage()),
                   );
                 },
                 color: FightClubColors.blackButton),
